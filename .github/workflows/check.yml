@@ -34,6 +34,7 @@ jobs:
         run: |
           python vpngate.py
           rm -f public/sub.txt
+          sed -i '/^#/d; /^[[:space:]]*$/d' public/hosts.txt
         env:
           CHECK_WORKER: "https://zz-sstp-check.zyhw28.workers.dev/check?sstp=vpn:vpn@"
           CHECK_CONCURRENCY: "16"
